@@ -1,0 +1,10 @@
+*{
+	border: 0;
+	margin: 0;
+}
+body{
+	background-repeat: no-repeat;
+	background-image: url("https://www.psdgraphics.com/wp-content/uploads/2009/02/old-paper.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+}
