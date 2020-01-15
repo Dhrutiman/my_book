@@ -4,12 +4,19 @@
 	
 	<h2 style="text-align: center;">{{ search | title }}</h2>
 	<hr>
+	{% if checks == '0' %}
+		<marquee direction="right">
+			<h3>
+				No Result Found
+			</h3>
+		</marquee>
+	{% endif %}
 	<div class="card-deck row row-cols-1 row-cols-md-3">
 		<!-- for cade showing in  3 each row-->
 		{% for book in for_front_data %}
 			<div class="col mb-4">
 				  <div class="card" style="width: 18rem; background-color: #696969; height: 100%; box-shadow: 3px 5px 9px 0px #000000;">
-						<img src="..." alt="sorry! can't find picture. &#x1F614;" class="card-img-top" class="card-img-top" style="width: 100%;height: 18rem;">
+						<img src="{{ book.6 }}" alt="sorry! can't find picture. &#x1F614;" class="card-img-top" class="card-img-top" style="width: 100%;height: 18rem;">
 						<div class="card-body">
 							<h5 class="card-title" style="color: #ffffff;">{{ book.0 }}</h5>
 							<p class="card-text" style="color: #FFFAF0; text-align: right;margin: 0px;padding: 0px;">
