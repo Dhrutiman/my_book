@@ -3,30 +3,37 @@
 {% block content %}
 	
 	<h2 style="text-align: center;">{{ search | title }}</h2>
-
-	<!--<div class="card" style="width: 18rem; background-color: #696969">
-		<img src="https://images-na.ssl-images-amazon.com/images/I/41wKll7ITyL._SX362_BO1,204,203,200_.jpg" class="card-img-top" alt="..." style="width: 100%;height: 18rem;">
-		<div class="card-body">
-			<h5 class="card-title">Card title</h5>
-			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			<a href="#" class="btn btn-primary">Go somewhere</a>
-		</div>
-	</div>
--->
+	<hr>
 	<div class="card-deck row row-cols-1 row-cols-md-3">
 		<!-- for cade showing in  3 each row-->
-		<div class="col mb-4">
-			  <div class="card" style="width: 18rem; background-color: #696969;">
-				    <img src="https://images-na.ssl-images-amazon.com/images/I/41wKll7ITyL._SX362_BO1,204,203,200_.jpg" class="card-img-top" class="card-img-top" alt="..." style="width: 100%;height: 18rem;">
-				    <div class="card-body">
-					    <h5 class="card-title" style="color: #ffffff;">Card title</h5>
-					    <p class="card-text" style="color: #ffffff;">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					</div>
-				    <div class="card-footer">
-				      	<a href="#" style="color: #ffffff;">Last updated 3 mins ago</a>
-				    </div>
-			  </div>
-		</div>
+		{% for book in for_front_data %}
+			<div class="col mb-4">
+				  <div class="card" style="width: 18rem; background-color: #696969; height: 100%; box-shadow: 3px 5px 9px 0px #000000;">
+						<img src="..." alt="sorry! can't find picture. &#x1F614;" class="card-img-top" class="card-img-top" style="width: 100%;height: 18rem;">
+						<div class="card-body">
+							<h5 class="card-title" style="color: #ffffff;">{{ book.0 }}</h5>
+							<p class="card-text" style="color: #FFFAF0; text-align: right;margin: 0px;padding: 0px;">
+								<i>By <br> {{ book.1 }}</i>
+							</p>
+							<p class="card-text" style="color: #ffffff; text-align: left; margin: 0px;padding: 0px;margin-top: 5px;">
+								<b>Language</b> 
+								{{ book.2 }}
+							</p>
+							<p class="card-text" style="color: #ffffff; text-align: left;margin: 0px;padding: 0px;">
+								<b>Year</b> 
+								{{ book.3 }}
+							</p>
+						</div>
+						<div class="card-footer">
+							<a href="{{ book.4 }}" style="color: #ffffff;float: left;">link</a>
+							<p class="card-text" style="color: #ffffff; text-align: right;margin: 0px;padding: 0px;">
+								<b>{{ book.5 }}</b> 
+							</p>
+							
+						</div>
+				  </div>
+			</div>
+		{% endfor %}
 
 	</div>
 
