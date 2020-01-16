@@ -37,7 +37,8 @@ def new_search(request):
         book_author=book[1].find_all('a')
         book_year=book[4].text
         book_lng=book[6].text
-        book_link=book[9].find('a').get('href')
+        book_size=book[7].text
+        book_link=book[9].find('a').get('href',"")
         book_formate=book[8].text
 
         ## to get picture of the book ##
@@ -46,7 +47,7 @@ def new_search(request):
         book_html = res.text
         picture_html = BeautifulSoup(book_html, features='html.parser')
         picture_data = picture_html.find('img',{'alt':'cover'})
-        picture_url1=picture_data.get('src')
+        picture_url1=picture_data.get('src',"")
         picture_url = pic_url[0] +picture_url1
 
         ## go get at max three author name of the book ##
@@ -74,7 +75,7 @@ def new_search(request):
         else:
             book_name=book_title
 
-        for_front_data.append((book_name,author,book_lng,book_year,book_link,book_formate,picture_url))
+        for_front_data.append((book_name,author,book_lng,book_year,book_link,book_formate,picture_url,book_size))
     checks=str(check)
     data_to_send={
         'search': search,
@@ -83,3 +84,4 @@ def new_search(request):
         'checks':checks,
     }
     return render(request,"book_app\\new_search.html",data_to_send)
+

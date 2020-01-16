@@ -3,16 +3,30 @@
 <head>
 
 	<title>Books</title>
+
 	{% load static %}
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-	<!--
-	-->
 	<link rel="stylesheet" type="text/css" href="{% static "/book_app/HomeCss.css" %}">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+      		$(".load").hide();
+   		});
+
+		$(document).ready(function(){
+		    $("#search_bt").click(function(){
+		    	$("#hide_re").fadeOut("fast",function(){
+		    		$(".load").show();
+		    	});
+		    });
+		});
+	</script>
 	
 </head>
 <body>
@@ -23,10 +37,9 @@
 				
 			</div>
 		</nav>
-	<div class="container">
+	
+	<div class="container" id="hide">
 		<h1 class="toper">Whatever the cost of our libraries, the price is cheap compared to that of an ignorant nation</h1>
-	</div>
-	<div class="container">
 		<form action="{% url 'new_search' %}" method="post">
 	    	{% csrf_token %}
 	        <div class="form-group search_bar">
@@ -41,13 +54,23 @@
 						  <label class="form-check-label" for="inlineRadio3">Author</label>
 					</div>
 				</div>
-			    <button type="submit" class="btn btn-secondary">
+			    <button type="submit" class="btn btn-secondary" id="search_bt">
 			    	Submit
 				</button>
     	</form>
-		{% block content %}
+    </div>
+    <div class="container">
+		<center class="load">
+		   <div class="spinner-border" id="load" style="height: 10em; width:10em;flood-color: #696969">
+		   </div>
+		   <h2>loading, please wait</h2>
+		</center>
 
-		{% endblock content %}
+		<div id="hide_re">
+			{% block content %}
+
+			{% endblock content %}
+		</div>
 	</div>
 
 </body>
