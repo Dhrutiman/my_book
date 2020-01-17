@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dhrutiman</title>
+
+    {% load static %}
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static "/book_app/HomeCss.css" %}">
+
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body style="background-color: #696969;">
+    <!--
+    <h1>
+        {{ book_front_data.0 }}
+    </h1>
+    <img src="{{ book_front_data.2 }}">
+
+    <p>
+        {{ book_front_data.1 }}
+    </p>
+    <h3 style="font-size: 2.5em;">        
+        <a href="{{ book_urls.2 }}" style="color: #ffffff">
+        	<i class="fab fa-goodreads" ></i>
+        </a>
+		<a href="{{ book_urls.4 }}" style="color: #ffffff">
+        	<i class="fab fa-amazon"></i>
+        </a>
+    </h3>
+-->
+	<div class="container">
+		<div class="container-fluid">
+                <div class="row">
+                        <div class="postt">
+                            <h3 class="topic">{{ book_front_data.0 }}</h3>
+                            <div class="row">
+                            	<div class="col-md-4 col-sm-4">
+                            		<div class="card" style="">
+									  <img class="card-img-top" src="{{ book_front_data.2}}" alt="Card image">
+									  <div class="card-img-overlay">
+									    <!--<p class="card-text">Some example text.</p>
+									    <a href="{{ book_urls.0 }}" class="btn btn-primary">See Profile</a>
+										-->
+									  </div>
+									</div>
+                            	</div>
+                            	<div class="col-md-2 col-sm-2">
+                            		
+                            	</div>
+                            	<div class="col-md-6 col-sm-6" >
+		                            <p style="font-family:Times New Roman; text-align: left;line-height: 1em">
+		                            	{{ book_front_data.1 }}
+		                            </p>
+	                        	</div>
+	                        </div>
+                    	</div>
+                </div>
+            </div>
+	</div>
+
+    
+
+</body>
+</html>

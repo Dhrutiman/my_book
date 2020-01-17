@@ -11,6 +11,12 @@
 				No Result Found
 			</h3>
 		</marquee>
+	{% elif checks == '-1' %}
+		<marquee direction="right">
+			<h3>
+				Server Error, Sorry &#x1F614;
+			</h3>
+		</marquee>
 	{% endif %}
 
 	<div class="card-deck row row-cols-1 row-cols-md-3" >
@@ -36,8 +42,10 @@
 							</p>
 						</div>
 						<div class="card-footer">
-							<a href="{{ book.4 }}" target="_blank" class="stretched-link" style="color: #00FFFF;float: left;text-decoration: none; font-size: 10px;">
-										<i class="fas fa-paper-plane" style="font-size: 2.5em"></i>
+							<!--<a href="{{ book.4 }}" target="_blank" class="stretched-link" style="color: #00FFFF;float: left;text-decoration: none; font-size: 10px;">
+							-->
+							<a href="{% url 'book_page'%}?url={{ book.4 }}" target="_blank" class="stretched-link {{ book.8 }}" style="color: #00FFFF;float: left;text-decoration: none; font-size: 10px;">
+										<i class="fas fa-paper-plane" style="font-size: 2.5em;"></i>
 											({{ book.7 }})
 							</a>
 							<p class="card-text" style="color: #00FFFF; text-align: right;margin: 0px;padding: 0px;">
