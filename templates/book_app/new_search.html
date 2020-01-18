@@ -23,28 +23,26 @@
 		<!-- for cade showing in  3 each row-->
 		{% for book in for_front_data %}
 			<div class="col mb-4">
-				  <div class="card" style="width: 18rem; background-color: #33331f; height: 100%; box-shadow: 3px 5px 9px 0px #000000;">
+				  <div class="card" style="width: 18rem; background-color: #33331f; height: 100%; box-shadow: 3px 5px 9px 0px #000000; margin-bottom: 10px;">
 						<img src="{{ book.6 }}" alt="sorry! can't find picture. &#x1F614;" class="card-img-top" class="card-img-top" style="width: 100%;height: 18rem;">
 						<div class="card-body">
-							<h5 class="card-title" style="color: #F0F8FF;">
+							<h6 class="card-title" style="color: #F0F8FF;">
 								{{ book.0 }}
-							</h5>
-							<p class="card-text" style="color: #FFFAF0; text-align: right;margin: 0px;padding: 0px; font-style: oblique;">
+							</h6>
+							<p class="card-text" style="color: #FFFAF0; text-align: right;margin: 0px;padding: 0px; font-style: oblique; font-size: 12px;">
 								<i>By <br> {{ book.1 }}</i>
 							</p>
-							<p class="card-text" style="color: #F0FFFF; text-align: left; margin: 0px;padding: 0px;margin-top: 5px;">
+							<p class="card-text" style="color: #F0FFFF; text-align: left; margin: 0px;padding: 0px;margin-top: 5px; font-size: 12px;">
 								<b>Language</b> 
 								{{ book.2 }}
 							</p>
-							<p class="card-text" style="color: #F0FFFF; text-align: left;margin: 0px;padding: 0px;">
+							<p class="card-text" style="color: #F0FFFF; text-align: left;margin: 0px;padding: 0px; font-size: 12px;">
 								<b>Year</b> 
 								{{ book.3 }}
 							</p>
 						</div>
 						<div class="card-footer">
-							<!--<a href="{{ book.4 }}" target="_blank" class="stretched-link" style="color: #00FFFF;float: left;text-decoration: none; font-size: 10px;">
-							-->
-							<a href="{% url 'book_page'%}?url={{ book.4 }}" target="_blank" class="stretched-link {{ book.8 }}" style="color: #00FFFF;float: left;text-decoration: none; font-size: 10px;">
+							<a href="{{ book.4 }}" target="_blank" class="stretched-link {{ book.8 }}" style="color: #00FFFF;float: left;text-decoration: none; font-size: 10px;">
 										<i class="fas fa-paper-plane" style="font-size: 2.5em;"></i>
 											({{ book.7 }})
 							</a>

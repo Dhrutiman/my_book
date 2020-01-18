@@ -85,86 +85,9 @@ def new_search(request):
 
     checks=str(check)
     data_to_send={
-        'search': search,
-        'type':search_type,
         'for_front_data':for_front_data,
         'checks':checks,
     }
     return render(request,"book_app\\new_search.html",data_to_send)
 
 
-def book_page(request):
-
-    try:
-        check=1
-        url = request.GET.get('url')
-        pic_url = url.split('_')
-        res = requests.get(url)
-        book_data = res.text
-        book = BeautifulSoup(book_data, features='html.parser')
-
-        ### geting info about book fron page ###
-        book_info=book.find('td',{'id':'info'})
-        book_url=""
-        book_wc=""
-        book_gr=""
-        book_ab=""
-        book_am=""
-        try:
-            urls=book_info.find_all('a')
-            for url in urls:
-                if url.text.lower()=='get':
-                    book_url=url.get('href')
-                elif url.text.lower()=="search in worldcat":
-                    book_wc=url.get('href')
-                elif url.text.lower() == "search in goodreads":
-                    book_gr = url.get('href')
-                elif url.text.lower() == "search in abeBooks":
-                    book_ab = url.get('href')
-                elif url.text.lower() == "search in amazon.com":
-                    book_am = url.get('href')
-                else:
-                    pass
-
-            book_urls=[book_url,book_wc,book_gr,book_ab,book_am]
-        except:
-            pass
-
-        try:
-            book_data=book_info.find_all('p')
-            for dat in book_data:
-                if dat.text.split(":")[0]=="Author(s)":
-                    book_author=dat.text.split(":")[1]
-                    break
-        except:
-            book_data=""
-        try:
-            book_title = book_info.find_all('h1')[0].text
-        except:
-            book_title="not found"
-
-        try:
-            book_des = book_info.find_all('div')
-            book_description=book_des[1].text.split(":")[1]
-        except:
-            book_description=""
-
-        ### geting image from page ###
-        book_image = book.find('img', {'alt': 'cover'})
-        image_url = book_image.get('src', "")
-        img_url = pic_url[0] + image_url
-
-        book_front_data=[book_title,book_description,img_url]
-
-    except:
-        check=0
-        book_front_data=[]
-        book_urls=[]
-
-    print(len(book_urls))
-    data_to_send = {
-        'book_front_data': book_front_data,
-        'check': check,
-        'book_urls':book_urls,
-    }
-    return render(request, "book_app\\book_page.html",data_to_send)

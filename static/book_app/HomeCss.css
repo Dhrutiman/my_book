@@ -20,25 +20,3 @@ body{
 .search_bar{
 	margin-top: 20px;
 }
-
-.foot
-{
-    color:#fff;
-    width:100%;
-    background-color:#000;
-    padding:4px 0px;
-}
-div.postt
-{
-    background-color:#FFFFFF;
-    border-radius:10px;
-    margin:20px 0 20px 0;
-    padding:5px;
-    border:10px solid #F8F8FF;
-    box-shadow:10px 10px 10px #222;
-
-}
-
-/*.search_bar button{
-	margin-top: 10px;
-}*/
