@@ -82,7 +82,7 @@ def new_search(request):
     except:
         for_front_data = []
         check = -1
-        search=[]
+        search=''
 
     checks=str(check)
     data_to_send={
