@@ -82,11 +82,13 @@ def new_search(request):
     except:
         for_front_data = []
         check = -1
+        search=[]
 
     checks=str(check)
     data_to_send={
         'for_front_data':for_front_data,
         'checks':checks,
+        'search':search,
     }
     return render(request,"book_app/new_search.html",data_to_send)
 
