@@ -29,20 +29,20 @@
 	</script>
 	
 </head>
-<body style="background-color: #DAA520;">
+<body>
 
 		<nav class="navbar navbar-dark bg-dark">
 			<div class="container nav-wrapper">
-				<a class="navbar-brand" href="/book_app/">BookApp</a>
+				<a class="navbar-brand" href="">BookApp</a>
 				
 			</div>
 		</nav>
 	
 	<div class="container" id="hide">
-		<h1 class="toper" style="text-align: center; margin-top: 30px;">Whatever the cost of our libraries, the price is cheap compared to that of an ignorant nation</h1>
+		<h1 class="toper">Whatever the cost of our libraries, the price is cheap compared to that of an ignorant nation</h1>
 		<form action="{% url 'new_search' %}" method="post">
 	    	{% csrf_token %}
-	        <div class="form-group search_bar" style="margin-top: 20px;">
+	        <div class="form-group search_bar"">
 			    <input type="text" name="search" placeholder="Search" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 				    <div class="form-check form-check-inline">
 						  <input class="form-check-input" type="radio" name="Search_type" id="inlineRadio1" value="title" checked>
