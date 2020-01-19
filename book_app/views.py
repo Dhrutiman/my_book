@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 # Create your views here.
 main_url='http://gen.lib.rus.ec/search.php?req={}&open=0&res=50&view=simple&phrase=1&column={}'
 def home(request):
-    return(render(request, 'book_app\home.html'))
+    return(render(request, 'book_app/home.html'))
 
 
 def new_search(request):
@@ -88,6 +88,6 @@ def new_search(request):
         'for_front_data':for_front_data,
         'checks':checks,
     }
-    return render(request,"book_app\\new_search.html",data_to_send)
+    return render(request,"book_app/new_search.html",data_to_send)
 
 
