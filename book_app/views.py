@@ -70,7 +70,6 @@ def get_data_on_book(url_f):
         picture_data = picture_html.find('img', {'alt': 'cover'})
         picture_url1 = picture_data.get('src', "")
         picture_url = base_url + picture_url1
-        print(picture_url)
 
         ## go get at max three author name of the book ##
         author = ""

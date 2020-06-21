@@ -1,6 +1,7 @@
 {% extends 'book_app/home.html' %}
 
 {% block content %}
+{% load static %}
 
 
 	<h2 style="text-align: center;">{{ search | title }}</h2>
@@ -24,6 +25,7 @@
 		{% for book in for_front_data %}
 			<div class="col mb-4">
 				  <div class="card" style="width: 18rem; background-color: #33331f; height: 100%; box-shadow: 3px 5px 9px 0px #000000; margin-bottom: 10px;">
+
 						<img src="{{ book.6 }}" alt="sorry! can't find picture. &#x1F614;" class="card-img-top" style="width: 100%;height: 18rem;">
 						<div class="card-body">
 							<h6 class="card-title" style="color: #F0F8FF;">
