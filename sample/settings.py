@@ -1,4 +1,5 @@
 import os
+import dj_database_url
 import whitenoise
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -14,7 +15,7 @@ SECRET_KEY = '0nlgzeb8m!guwo0u!u$3#!rxd#ce)v8u^_53uj(af+07w*-cst'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','192.168.225.223','books1998.herokuapp.com']
+ALLOWED_HOSTS = ['heroku.com','127.0.0.1','192.168.225.223']
 
 # Application definition
 
