@@ -26,20 +26,6 @@ def new_search(request):
         check = -1
         search=''
 
-    ### testing ###
-    """for_front_data = [
-        ("Who Will Cry When You Die",
-        "Robin Sharma",
-        "English",
-        "2002",
-        "http://gen.lib.rus.ec/book/bibtex.php?md5=B72EC363B09C3E669AC56ABC1EBBDC5D",
-        "epub",
-        "http://gen.lib.rus.ec/covers/813000/b72ec363b09c3e669ac56abc1ebbdc5d-d.jpg",
-        "122 kB",
-        "813028"),]
-    check = 1
-    checks=str(check)
-    """
     checks=str(check)
     data_to_send={
         'for_front_data':for_front_data,
@@ -50,67 +36,73 @@ def new_search(request):
 
 
 def get_data_on_book(url_f):
-    response = requests.get(url_f)
-    page_html = response.text
-
-    page_data = BeautifulSoup(page_html, features='html.parser')
-
-    post_data = page_data.find_all('tr', {'valign': 'top', 'bgcolor': ('#C6DEFF', '')})
-
     for_front_data = []
     check = 0
+    try:
+        response = requests.get(url_f)
+        page_html = response.text
+
+        page_data = BeautifulSoup(page_html, features='html.parser')
+
+        post_data = page_data.find_all('tr', {'valign': 'top', 'bgcolor': ('#C6DEFF', '')})
+    except:
+        return
 
     for post in post_data:
 
-        check += 1
+        try:
 
-        ## all the required data from the page in text form ##
-        book = post.find_all('td')
-        book_id = book[0].text
-        book_data = book[2].find('a', {'id': book_id})
-        book_author = book[1].find_all('a')
-        book_year = book[4].text
-        book_lng = book[6].text
-        book_size = book[7].text
-        book_link = book[9].find('a').get('href', "")
-        book_formate = book[8].text
+            check += 1
 
-        picture_url=""
+            ## all the required data from the page in text form ##
+            book = post.find_all('td')
+            book_id = book[0].text
+            book_data = book[2].find('a', {'id': book_id})
+            book_author = book[1].find_all('a')
+            book_year = book[4].text
+            book_lng = book[6].text
+            book_size = book[7].text
+            book_link = book[9].find('a').get('href', "")
+            book_formate = book[8].text
 
-        ## go get at max three author name of the book ##
-        author = ""
-        i = 0
-        for name in book_author:
-            if author != "":
-                author += ", "
-            author = author + name.text
-            i += 1
-            if (i == 3):
-                break
+            picture_url=""
 
-        ## to get titel of the book ##
-        ext = book_data.find_all('i')
-        ex = ""
-        p = 0
-        for i in ext:
-            p = 1
-            ex = ex + i.text
+            ## go get at max three author name of the book ##
+            author = ""
+            i = 0
+            for name in book_author:
+                if author != "":
+                    author += ", "
+                author = author + name.text
+                i += 1
+                if (i == 3):
+                    break
 
-        book_title = book_data.text
-        if p == 1:
-            book_name = book_title[:len(book_title) - len(ex) - 1]
-        else:
-            book_name = book_title
+            ## to get titel of the book ##
+            ext = book_data.find_all('i')
+            ex = ""
+            p = 0
+            for i in ext:
+                p = 1
+                ex = ex + i.text
 
-        for_front_data.append(
-            (book_name,
-             author,
-             book_lng,
-             book_year,
-             book_link,
-             book_formate,
-             picture_url,
-             book_size,
-             book_id))
+            book_title = book_data.text
+            if p == 1:
+                book_name = book_title[:len(book_title) - len(ex) - 1]
+            else:
+                book_name = book_title
+
+            for_front_data.append(
+                (book_name,
+                 author,
+                 book_lng,
+                 book_year,
+                 book_link,
+                 book_formate,
+                 picture_url,
+                 book_size,
+                 book_id))
+        except :
+            pass
 
     return((for_front_data,check))
