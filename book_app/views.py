@@ -75,17 +75,6 @@ def get_data_on_book(url_f):
         book_link = book[9].find('a').get('href', "")
         book_formate = book[8].text
 
-        ## to get picture of the book ##
-        #pic_url = book_link.split('_')
-        """res = requests.get(book_link)
-
-        book_html = res.text
-        picture_html = BeautifulSoup(book_html, features='html.parser')
-        picture_data = picture_html.find('img', {'alt': 'cover'})
-        picture_url1 = picture_data.get('src', "")
-        picture_url = base_url + picture_url1
-        """
-
         picture_url=""
 
         ## go get at max three author name of the book ##
