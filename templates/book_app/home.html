@@ -13,7 +13,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>	
 </head>
 <body>
-    <header>
+    <div class="header">
 	    <nav class="nav-color navbar navbar-dark">
 			<div class="container nav-wrapper">
 				<a class="navbar-brand" href="/">BookApp</a>	
@@ -21,27 +21,32 @@
 		</nav>
 		
 		<div class="container" id="hide">
-			<h1 class="toper">Whatever the cost of our libraries, the price is cheap compared to that of an ignorant nation</h1>
+			<h1 class="toper">
+				Whatever the cost of our libraries, the price is cheap compared to that of an ignorant nation
+			</h1>
 			<form action="{% url 'new_search' %}" method="post">
 		    	{% csrf_token %}
 		        <div class="form-style form-group search_bar"">
-				    <input type="text" name="search" placeholder="Search" class="form-control" id="Search" aria-describedby="Search">
+				    <input type="text" name="search" placeholder="Search" class="form-control"
+				     id="Search" aria-describedby="Search">
 					    <div class="form-check form-check-inline">
-							  <input class="form-check-input" type="radio" name="Search_type" id="inlineRadio1" value="title" checked>
+							  <input class="form-check-input" type="radio" name="Search_type" 
+							  id="inlineRadio1" value="title" checked>
 							  <label class="form-check-label" for="inlineRadio1">Title</label>
 						</div>
 						<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="radio" name="Search_type" id="inlineRadio3" value="author">
+							  <input class="form-check-input" type="radio" name="Search_type" 
+							  id="inlineRadio3" value="author">
 							  <label class="form-check-label" for="inlineRadio3">Author</label>
 						</div>
 					</div>
-				    <button type="submit" class="btn btn-secondary" id="search_bt">
+				    <button type="submit" class="search-button btn btn-secondary" id="search_bt">
 				    	Submit
 					</button>
 	    	</form>
 
 	    </div>    	
-    </header>
+    </div>
 	<section>
 		<div class="container">
 			<center class="load">

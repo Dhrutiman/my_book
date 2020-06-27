@@ -26,6 +26,20 @@ def new_search(request):
         check = -1
         search=''
 
+    ### testing ###
+    """for_front_data = [
+        ("Who Will Cry When You Die",
+        "Robin Sharma",
+        "English",
+        "2002",
+        "http://gen.lib.rus.ec/book/bibtex.php?md5=B72EC363B09C3E669AC56ABC1EBBDC5D",
+        "epub",
+        "http://gen.lib.rus.ec/covers/813000/b72ec363b09c3e669ac56abc1ebbdc5d-d.jpg",
+        "122 kB",
+        "813028"),]
+    check = 1
+    checks=str(check)
+    """
     checks=str(check)
     data_to_send={
         'for_front_data':for_front_data,
@@ -63,13 +77,16 @@ def get_data_on_book(url_f):
 
         ## to get picture of the book ##
         #pic_url = book_link.split('_')
-        res = requests.get(book_link)
+        """res = requests.get(book_link)
 
         book_html = res.text
         picture_html = BeautifulSoup(book_html, features='html.parser')
         picture_data = picture_html.find('img', {'alt': 'cover'})
         picture_url1 = picture_data.get('src', "")
         picture_url = base_url + picture_url1
+        """
+
+        picture_url=""
 
         ## go get at max three author name of the book ##
         author = ""
