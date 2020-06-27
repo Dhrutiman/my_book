@@ -14,7 +14,7 @@ SECRET_KEY = '0nlgzeb8m!guwo0u!u$3#!rxd#ce)v8u^_53uj(af+07w*-cst'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','192.168.225.223']
+ALLOWED_HOSTS = ['127.0.0.1','192.168.225.223','books1998.herokuapp.com/']
 
 # Application definition
 
@@ -109,6 +109,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR, 'static'),]
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
