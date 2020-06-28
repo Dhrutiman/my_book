@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Piedra&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
+/* Edite logo at "logomaker.thehoth.com/?project=35866114" */
+
 :root{
 	--background-color1: rgba(50,50,50,1);
 	--background-color2: #DAA520;
@@ -30,6 +32,10 @@ body{
 	font-size: 2rem;
 }
 
+.nav-color img{
+	height: 2.5rem;
+}
+
 .form-style label{
 	color:var(--font-color2);
 }
@@ -43,7 +49,8 @@ body{
 	font-family: 'Piedra', cursive;
 	font-size: var(--font_size);
 	text-align: center;
-	margin-top: 30px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	/*font-family: "Times New Roman";*/
 }
 
