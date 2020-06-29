@@ -10,10 +10,12 @@
 	--background-color3: #696969;
 	--background-color4: #56562F;
 	--background-color5: #33331f;
+	--background-color6: #36361A; 
 	--font_size: 2.5rem;
 	--font-color1: #fff;
 	--font-color2: #f0f0f0;
 	--font-color3: #F4F3CC;
+	--font-size-link:2.5rem;
 
 }
 
@@ -106,9 +108,12 @@ border-color: #f0f0f0;
 	height: 100%; 
 	box-shadow: 3px 5px 9px 0px #000000; 
 	margin-bottom: 10px;
+	
 }
 .card-content:hover{
-	--background-color4: #36361A;
+	--background-color4: #ADADAD; /*#36361A*/
+	--font-color3: #000000;
+	--background-color6: #E3E3E3;
 
 }
 
@@ -138,7 +143,7 @@ border-color: #f0f0f0;
 }
 
 .footer-card{
-	background-color: #36361A;
+	background-color: var(--background-color6);
 	border-radius: 2%;
 }
 
@@ -146,7 +151,10 @@ border-color: #f0f0f0;
 	color: var(--font-color3);
 	float: left;
 	text-decoration: none; 
-	font-size: 0.6rem;
+	font-size: 0.8rem;
+}
+.footer-card a i{
+	font-size: 1.6rem;
 }
 
 .footer-card p{
@@ -155,3 +163,4 @@ border-color: #f0f0f0;
 	margin: 0px;
 	padding: 0px;
 }
+
